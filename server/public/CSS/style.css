@@ -1,0 +1,239 @@
+*{
+    font-family: Cambria;
+}
+.cover{
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    background: #F8aa02;
+}
+.logo{
+    width: 70px;
+    border-radius: 100%;
+    float: left;
+    transform: scale(1.3,1.3);
+    margin-right: 10px;
+}
+.phone{
+    z-index: 1;
+    font-weight: 200;
+}
+.Phone , .email, .insta,.face{
+    color:#FFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+}
+a{
+    text-decoration: none;
+}
+.reg{
+    width: 50%;
+    text-align: right;
+}
+.reg a{
+    color: #000;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none; 
+}
+.social-icon{
+    display: inline-block;    
+}
+.social-icon p{
+    display: block;
+}
+.social-icon p a{
+    height: 30px;
+    margin-right:10px;
+    text-decoration: none;
+}
+/* Navbar */
+.bg-color{
+    background:#0F0F0FFB;
+}
+.navbar-brand
+{
+    color: #F8aa02;
+    font-weight: bold;
+    font-size: 35px!important;
+}
+.nav-link{
+    font-weight: bold;
+    color: #F8aa02;
+    font-size: 20px;
+}
+
+.nav-item {
+    margin-top: 10px;
+}
+.navbar-toggler i{
+    color: #F8aa02;
+}
+/* End NavBar */
+
+/* Hero Section */
+#hero{
+    display: table;
+    width: 100%;
+    height: 100vh;
+    background: url(../images/Restaurant.jpg) top center;
+    background-size: cover;
+}
+@media(min-width:1024px){
+    #hero{
+        background-attachment:fixed;
+    }
+}
+@media(max-width:768px)
+{
+    .card{
+       height: 660px;
+    }
+}
+#hero .hero-logo{
+    margin: 20px;
+    max-width: 100%;
+}
+#hero .hero-container{
+    background: rgba(0,0,0,0.2);
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+#hero h1{
+    margin: 30px 0px 10px 0px;
+    font-weight: bold;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #fff;
+}
+@media(max-width:768px){
+    #hero h1{
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+#hero .actions a{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 2px;
+    transform: 0.5s;
+    margin: 10px;
+}
+#hero .btn-get-started{
+    background: #ebe703;
+    border: 2px solid #a85303;
+    color: #FFF;
+    border-radius: 10px;
+}
+#hero .btn-get-started:hover{
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-style: italic;
+}
+/* End Hero Section */  
+/* Variety Section */
+.variety{
+    padding-bottom:40px;
+}
+.variety .card{
+    border: 0;
+    padding: 0 30px;
+    margin-bottom:60px;
+    position: relative;
+    background: transparent;
+}
+.variety .card-img{
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    overflow: hidden;
+    z-index: 9;
+    border-radius:0;
+}
+.variety .card-img img{
+    max-width: 100%;
+    height: 400px;
+    transition: all 0.3s ease-in-out;
+}
+.variety .card-body{
+    z-index: 10;
+    background: #ff9b04a6;
+    border-top:4px solid #f08902;
+    padding: 30px;
+    box-shadow: 0px 2px 15px rgba(241, 159, 5, 0.5);
+    margin-top: -60px;
+    transition: 0.3s;
+}
+.variety .card-title{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.variety .card-title a{
+    color: #000;
+    transition: 0.3s;
+}
+.variety .card-text{
+    color: #000;
+}
+.variety .read-more a{
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    transition: 0.3s;
+}
+.variety .read-more a:hover{
+    color: #854101;
+}
+.variety .card:hover img{
+    transform: scale(1.3,1.3);
+}
+.variety .card:hover .card-body{
+    border-color: #fdc134;
+}
+.variety .card:hover .card-body .card-title a{
+    color: #854101;
+}
+/* End Variety Section */
+/* Product Section */
+.bg-img{
+    background: #000;
+}
+.text-color{
+    color:#fe9801;
+}
+.ContactUs-section h2{
+    font-style: italic;
+    font-size: 40px;
+    margin-bottom: -30px;
+}
+
+/* .product{
+    width: 100%;
+    display: block;
+    margin-bottom: 40px;
+    transition:all 0.3s ease;
+} 
+.product .img{
+    display: block;
+    border-radius: 4px;
+    height: 350px;
+    position: relative;
+    transition: all 0.3s ease;
+    z-index:0;
+}*/
+
+/* End Product Section */

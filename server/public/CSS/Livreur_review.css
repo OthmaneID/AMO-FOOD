@@ -1,0 +1,102 @@
+body {
+  background-color: rgb(36, 36, 36);
+  font-family: Cambria;
+}
+.Global {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.Account-Name {
+  color: #f8aa02;
+  text-align: center;
+}
+.Account-image {
+  width: 300px;
+  height: 200px;
+  border-radius: 50px;
+  border: 1px solid white;
+  background: top center no-repeat;
+  background-size: cover;
+  /* background-image: url(../images/1620313548061-IMAGEimage.jpeg) !important; */
+}
+.Account-CIN {
+  color: #fff;
+  font-size: 30px;
+}
+.Account-CIN span {
+  color: #ebe703;
+}
+.Account-Phone {
+  color: #fff;
+  font-size: 30px;
+}
+.Account-Phone span {
+  color: chartreuse;
+}
+.Account-Email {
+  color: #fff;
+  font-size: 30px;
+}
+.Account-Email span {
+  color: rgb(0, 140, 255);
+}
+.Account-Commande-liv {
+  color: #fff;
+  font-size: 30px;
+}
+.Account-Commande-liv span {
+  color: rgb(255, 123, 0);
+}
+.Account-info div {
+  margin: 20px;
+}
+.Image-Section {
+  position: relative;
+}
+.state {
+  position: absolute;
+  left: 270px;
+  top: 85%;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.disponible {
+  background-color: green;
+}
+.indisponible {
+  background-color: red;
+}
+.disponible:hover::after {
+  content: "disponible";
+  position: absolute;
+  left: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #f8aa02;
+  border-radius: 20px;
+}
+.indisponible:hover::after {
+  content: "indisponible";
+  position: absolute;
+  left: 30px;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #f8aa02;
+}

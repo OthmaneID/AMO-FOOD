@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Cambria;
+}
+body {
+  background-color: #242424;
+}
+.Global {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Image-Section {
+  position: relative;
+}
+.Image-Prod {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+.Image-Icon {
+  color: #fff;
+  background-color: #f8aa02;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  left: 100px;
+  top: 120px;
+  transition: all 0.3s ease;
+}
+.Image-Icon:hover {
+  width: 35px;
+  height: 35px;
+}
+.Image-Icon:hover::after {
+  content: "Change Image";
+  color: #f8aa02;
+  background-color: #fff;
+  width: 110px;
+  height: 22px;
+  border-radius: 10px;
+  position: absolute;
+  left: 35px;
+  padding: 3px;
+}
+.Text-Section div {
+  margin-top: 10px;
+}
+.Text-Section input {
+  border-radius: 20px;
+  height: 40px;
+  padding: 10px;
+}
+.Text-Section input:focus {
+  outline: none;
+  box-shadow: 3px 3px 2px #f8aa02d0;
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.button-section button {
+  width: 45%;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #f8aa02;
+  color: #fff;
+  cursor: pointer;
+}
+.button-section button:hover {
+  border: 3px solid #fff;
+  box-shadow: 4px 4px 2px #f8aa029a;
+}
+.button-section button:focus {
+  outline: none;
+}

@@ -1,0 +1,79 @@
+body {
+  background: url(../images/ContactUs-bg.jpg) top center;
+  background-size: cover;
+}
+* {
+  font-family: Cambria;
+}
+.globale {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+}
+.Container {
+  /* margin: 0 auto; */
+  height: 500px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 8px 8px 8px rgba(246, 161, 24, 0.767);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.info {
+  text-align: center;
+  width: 60%;
+}
+.info input {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(246, 161, 24, 0.767);
+  margin-bottom: 10px;
+}
+
+#Message {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.Send_btn {
+  margin-top: 20px;
+  width: 400px;
+  height: 40px;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #fff;
+  border: 0px;
+  background-color: #f8aa02;
+  font-weight: bold;
+  font-size: 20px;
+}
+.Send_btn:hover {
+  border: 2px rgba(0, 0, 0, 0.7) solid;
+}
+.back {
+  font-size: 30px;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+@media (max-width: 768px) {
+  .Container {
+    width: 330px;
+    height: 550px;
+  }
+  .Send_btn {
+    width: 200px;
+  }
+  input {
+    width: 100%;
+  }
+  .info {
+    width: 100%;
+  }
+}
