@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximun-scale=1">
+    <script src="https://kit.fontawesome.com/af5f93d7ae.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+    <link rel="stylesheet" href="CSS/Admin-style.css">
+    <script src="JS/Produits_CTR.js"></script> 
+    <script src="JS/Livreurs_CTR.js"></script>
+    <title>AMOFOOD Admin</title>
+</head>
+<body>
+    <div class="Globale"> 
+     <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2>AMOFOOD</h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="" class="Active Dashboard side">
+                        <span class="fas fa-chart-line"></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="Livreur side">
+                        <span class="fas fa-user"></span>
+                        <span>Les Livreurs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="Produit side">
+                        <span class="fas fa-hamburger"></span>
+                        <span>Produits</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="Commandes side">
+                        <span class="fas fa-shopping-bag"></span>
+                        <span>Commandes</span>
+                    </a>
+                </li>
+            </ul>
+         
+        </div>
+        </div>
+
+        <div class="main-content">
+            <nav class="header navbar navbar-expand-lg">
+                <div>
+                    <h2>
+                        <div class="header-title">
+                            <label for="nav-toggle toggle">
+                                <span class="fas fa-bars"></span>
+                            </label>
+                            <span class="title"> Dashboard</span>
+                        </div>
+                    </h2>
+                </div>
+    
+                <div class="search-wrapper">
+                    <span class="fas fa-search"></span>
+                    <input type="search" name="search" id="search" placeholder="Search here">
+                </div>
+    
+                <div class="user-wrapper">
+                    <img src="images/AMOFOOD_LOGO.png" height="50px" width="50px">
+                    <div>
+                        <h4><%=Admin.UserName%></h4>
+                        <div class="logout_span_div">
+                            <small>Admin</small>
+                            <form action="/Logout" method="post">
+                                <button type="submit" class="Logout_btn">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <main class="main Dashboard-section">
+            <div class="cards">
+                <div class="cards-single Commande-card ">
+                    <div>
+                        <h1><% var i=Commands.length%><%=i%></h1>
+                        <span>Commande</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-users"></span>
+                    </div>
+                </div>
+                <div class="cards-single Livreur-card">
+                    <div>
+                        <h1><% var i =info.length%><%=i%></h1>
+                        <span>Livreurs</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-users"></span>
+                    </div>
+                </div>
+                <div class="cards-single Produit-card">
+                    <div>
+                        <h1><% var i=Foods.length%><%=i%></h1>
+                        <span>Produits</span>
+                    </div>
+                    <div>
+                        <span class="fas fa-hamburger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="recent-flex">
+
+                <div class="Commande">
+                    <div class="card-header">
+                        <h2>Commande</h2>
+                    </div>
+                    <div class="card-body">
+                        <Table width="100%">
+                            <thead>
+                                <th>ID</th>
+                                <th>UserName</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Commands Number</th>
+                                <th>Stat</th>
+                                <th>Adresse</th>
+                            </thead>
+                            <tbody>
+                                <% Commands.forEach(command => { %>
+                                <tr>
+                                    <td><%=command._id%></td>
+                                    <td> <%= command.UserName %>  </td>
+                                    <td> <%= command.Email %></td>
+                                    <td><%= command.Phone %></td>
+                                    <td><% var i=command.command.length%><%=i%></td>
+                                    <td><%= command.Stat %></td>
+                                    <td><%= command.Adresse %></td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
+
+                <div class="Livreurs">
+                    <div class="card-header">
+                        <h2>Livreurs</h2>
+                    </div>
+                    <div class="card-body">
+                        <Table width="100%">
+                            <thead>
+                                <th>CIN</th>
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Commande Livrer</th>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0; i<info.length; i++) { %>
+                                <tr>
+                                    <td><%=info[i].CIN%></td>
+                                    <td><%=info[i].Nom%></td>
+                                    <td><%=info[i].Prenom%></td>
+                                    <td><%=info[i].Email%></td>
+                                    <td><%=info[i].Phone%></td>
+                                    <td><%=info[i].Commande_Livrer%></td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </Table>
+
+                    </div>
+                </div>
+
+                <div class="Produits">
+                    <div class="card-header">
+                        <h2>Produits</h2>
+                    </div>
+                    <div class="card-body">
+                        <Table width="100%">
+                            <thead>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Categorie</th>
+                                <th>Description</th>
+                                <th>Prix</th>
+                                <th>Image</th>
+                            </thead>
+                            <tbody>
+                                <% Foods.forEach(food => { %>
+                                <tr>
+                                    <td><%=food._id %> </td>
+                                    <td><%=food.Name %></td>
+                                    <td><%=food.Categorie %></td>
+                                    <td><%=food.Descritption %></td>
+                                    <td><%=food.Price %>DH</td>
+                                    <td><div class="Image_Prod" style='background: url(<%=food.Image%>) center;'></div></td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
+            </div>
+            </main>
+
+
+            <main class="main livreurs-section">
+                <h1>Livreurs Section</h1>
+                <div class="create-new"><span class="fas fa-plus"></span>Create New</div>
+                
+                
+                <div class="comptes-section">
+                    <%if(info!=null){%>
+                        <% info.forEach(function(compte,index){ %>
+                        <div class="compte">
+                            <div class="compte-img" style='background-image: url(<%=compte.Profil%>);' ></div>
+                            <div>
+                                <div class="compte-nom"><%=compte.Nom%> <%=compte.Prenom%></div>
+                                <div class="compte-state">
+                                    <div class="CIN"><%=compte.CIN%></div>
+                                    <span class='fas fa-circle <%=compte.state%>'></span>
+                                    <div class="compte-state-txt"><%=compte.state%></div>
+                                </div>
+                            </div>
+                            <div class="compte-buttons">
+                                <div><a  href='Admin/Livreur/<%=compte._id%>' class="fas fa-eye icon-compte" id="details"></a></div>
+                                <div class="delete_Liv fas fa-trash-alt icon-compte" id="<%=compte._id%>"></div>
+                            </div>
+                        </div>
+                        <% }) %>
+                    <%}%>
+
+            
+            </div>
+            </main>
+
+            <main class="main Produits-section">
+                <ul class="Choices">
+                    <li>
+                        <div class="Active-Choice button Liste-Produits">Liste</div>
+                    </li>
+                    <li>
+                        <div class="button Create-Produits">Create</div>
+                    </li>
+                </ul>
+                <div class="Choice">
+                    <div class="Liste-Choice">
+                        <h1 style="position: absolute; top: 5px;">Liste</h1>
+                        <div class="food-liste">
+                            <% Foods.forEach(food => { %>
+                            <div class="food-item">
+                                <div class="food-img" style='background-image: url(<%=food.Image%>);'></div>
+                                <div class="food-txt">
+                                    <div class="food-title"><%=food.Name%></div>
+                                    <div class="food-categ"><%=food.Categorie%></div>
+                                    <div class="food-price"><span><%=food.Price%></span>DH</div>
+                                </div>
+                                <div class="food-btns">
+                                    <a href="/Admin/Command_Edit/<%=food._id%>" class="edit fas fa-pen-alt"  id='<%=food._id%>'></a>
+                                    <div  class="delete fas fa-trash-alt" id='<%=food._id%>'></div>
+                                </div>
+                            </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div class="Create-Choice">
+                        <div>
+                            <form action="/Create_Food" method="post" id="form" enctype="multipart/form-data">
+                                <h1>Create</h1>
+                                <div><input type="text" name="Name" id="Name" class="Name" placeholder="Name"></div>
+                                <div><input type="text" name="Categorie" id="Categorie" class="Categorie" placeholder="Categorie"></div>
+                                <div>
+                                <Textarea name="Desc" id="Desc" class="Desc" placeholder="Description" cols="30" rows="5"></Textarea></div>
+                                <div><input type="number" name="Price" id="Price" class="Price" placeholder="Price" min="5"></div>
+                                <div><input type="file" name="FOOD-IMG" id="FOOD-IMG" class="FOOD-IMG"></div>
+                                <button type="submit" name="Create-Food" id="Create-Food" class="Create-Food">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <script>
+                $(document).ready(function(){
+                    $('.Create-Choice').hide()
+
+                    $('.Choices .button').click(function(){
+                        $('.Choices .button').removeClass('Active-Choice')
+                        $(this).addClass('Active-Choice');
+                    })
+
+
+                    $('.Liste-Produits').click(function(){
+                        $('.Create-Choice').hide();
+                        $(".Liste-Choice").show();
+                    })
+
+                    $('.Create-Produits').click(function(){
+                        $('.Liste-Choice').hide();
+                        $(".Create-Choice").show();
+                    })
+
+                })
+            </script>
+            <main class="main Commandes-section">
+                <h1>Commandes Section</h1>
+                <div class="Infos-Command">
+                <% for( let i = 0; i < Commands.length; i++ ) { %>
+                    
+                <div class="Command-Class">
+                    <div class="UserName" data-toggle="collapse" data-target='#command-collapse<%=i%>' 
+                    aria-expanded="false" aria-controls="command-collapse<%=i%>">UserName : <%=Commands[i].UserName%> <span class="arrow-down fas fa-arrow-circle-down"></span></div>
+                    <div class="collapse command-collapse<%=i%>" id="command-collapse<%=i%>">    
+                        <div class="card card-body">
+                            <div class="ID">id : <%=Commands[i]._id%></div>
+                            <div class="Email-Command">Email : <%=Commands[i].Email%></div>
+                            <div class="Phone-Command">Phone : <%=Commands[i].Phone%></div>
+                            <div class="Adresse-Command">Adresse : <%=Commands[i].Adresse%></div>
+                            <div class="Plat-Command" data-toggle="collapse" data-target='#Plats<%=i%>'
+                                aria-expanded="false" aria-controls='Plats<%=i%>'>PLATS <span class="arrow-down fas fa-arrow-circle-down"></span></div>
+                            
+                                <div class="collapse Plats" id='Plats<%=i%>'>
+                                    <% for( let j = 0; j < Commands[i].command.length; j++ ) { %>
+                                        <div style="border-bottom: 1px solid #242424; margin-bottom: 10px;">
+                                            <div class="Title-Food-Command">Title : <%=Commands[i].command[j].title%></div>
+                                            <div class="QTT-Food-Command">Qtt : <%=Commands[i].command[j].Qtt%></div>
+                                            <div class="Price-Food-Commad">Price : <%=Commands[i].command[j].price%> <span style="color:#F8aa20;">DH</span></div>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                </div>
+            </main>
+        </div>
+            <div class="popup-bg">
+            
+                <div class="popup container" id="popup_liv">
+                    <div class="liv-info">
+                        <span class="close-popup-liv">+</span>
+                            <form action="/Admin" method="POST" enctype="multipart/form-data">
+                                <div><input type="text" name="Nom" id="Nom" placeholder="Entrer  Nom" ></div> 
+                                <div><input type="text" name="Prenom" id="Prenom" placeholder="Entrer  Prenom" ></div> 
+                            
+                                <div><input type="text" name="CIN" id="CIN" placeholder="Entrer  CIN" ></div> 
+                                <div><input type="email" name="Email" id="Email" placeholder="Entrer  Email" ></div> 
+
+                                <div><input type="tel" name="Phone" id="Phone" placeholder="Phone Number"></div>
+                                <div><input type="password" name="Password" id="Password" placeholder="Entrer  Mot de passe" ></div> 
+
+                                <input type="file" name="IMAGE" id="IMAGE"><br>
+                                <span class="err-ajout-liv"></span>
+                                <button id="Ajouter_Liv" name="Ajouter_Liv">Ajouter Livreur</button>
+                            </form>
+                    </div>
+                </div> 
+        
+            </div>
+        
+    </div>
+
+    <script>
+        $('.popup-bg').hide();
+        $(document).ready(function(){
+            
+            $('.create-new').click(function(){
+                $('.popup-bg').show();
+            })
+
+            $('#Ajouter_Liv').click(function(){
+                if($('#Nom').val() == "" | $('#Prenom').val() == "" | $('#CIN').val() == "" | $('#Email').val() == ""|
+                $('#Password').val() == "" | $('#Confirm_Password').val() == ""){
+                    $('.err-ajout-liv').text('Tous Les Champs sont obligatoire !')
+                    $('.err-ajout-liv').css({ 'color': 'red', 'font-weight': 'bold' })
+                }
+                else{
+                    $('.err-ajout-liv').text('');
+                }
+            })
+
+            $('.close-popup-liv').click(function(){
+                $('.popup-bg').hide();
+            });
+        })
+    </script>
+
+
+    <script>
+        $(document).ready(function(){
+            var hidden=false
+            var sidewidth;
+            $('.fa-bars').click(function(){
+                if($(Window).width()<=720)
+                {
+                    sidewidth=60;
+                }
+                else{
+                    sidewidth=335;
+                }
+
+                if(hidden)
+                {
+                    hidden=false
+                    $('.sidebar').show()
+                    $('.main-content').css({'width':'calc(100%-'+sidewidth+'px)','margin-left':sidewidth+'px'})
+                    $('.main-content nav').css({'left':sidewidth+'px'})
+                    $('.header').css({'width':'calc(100%-'+sidewidth+'px)'})
+                }else{
+                    hidden=true
+                    $('.sidebar').hide()
+                    $('.main-content').css({'width':'100%','margin-left':'0px'})
+                    $('.main-content nav').css({'left':'0'})
+                    $('.header').css({'width':'100%'})
+                }
+            });
+        })
+    </script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.livreurs-section').hide();
+        $('.Produits-section').hide();
+        $('.Commandes-section').hide();
+
+        $('.Commande').hide();
+        $('.Livreurs').hide();
+        $('.Produits').hide();
+
+
+        $(".side").click(function(e){
+            e.preventDefault();
+            $('a').removeClass('Active')
+            $(this).addClass("Active");
+        })
+
+        $(".cards-single").click(function(){
+            $('.cards-single').removeClass('Active');
+            $(this).addClass('Active');
+        })
+
+        $('.Dashboard').click(function(){
+            $('.Dashboard-section').show();
+            $('.title').text("Dashboard");
+            $('.livreurs-section').hide();
+            $('.Produits-section').hide();
+            $('.Commandes-section').hide();
+
+        });
+        $('.Livreur').click(function(){
+            $('.livreurs-section').show();
+            $('.title').text("Livreurs");
+            $('.Produits-section').hide();
+            $('.Commandes-section').hide();
+            $('.Dashboard-section').hide();
+        });
+        $('.Produit').click(function(){
+            $('.livreurs-section').hide();
+            $('.Produits-section').show();
+            $('.title').text("Produits");
+            $('.Commandes-section').hide();
+            $('.Dashboard-section').hide();
+        });
+        $('.Commandes').click(function(){
+            $('.livreurs-section').hide();
+            $('.title').text("Commandes");
+            $('.Produits-section').hide();
+            $('.Commandes-section').show();
+            $('.Dashboard-section').hide();
+
+        });
+
+        $(".Commande-card").click(function(){
+            $('.Commande').show();
+            $('.Livreurs').hide();
+            $('.Produits').hide();
+        })
+       
+        $(".Livreur-card").click(function(){
+            $('.Commande').hide();
+            $('.Livreurs').show();
+            $('.Produits').hide();
+        })
+        
+        $(".Produit-card").click(function(){
+            $('.Commande').hide();
+            $('.Livreurs').hide();
+            $('.Produits').show();
+        })
+    
+    
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

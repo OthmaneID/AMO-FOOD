@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://kit.fontawesome.com/af5f93d7ae.js" crossorigin="anonymous"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+	<link rel="stylesheet" href="CSS/mef.css">
+	<script src="JS/Command_Info_JS.js"></script>
+	<!-- <script src="JS/v_inscr.js"></script> -->
+	<title>Command Info</title>
+</head>
+<body>
+	<div class="GLOBAL">
+		<div class="div2" style="width: 100%;">
+			<div class="Title">
+				<h2>Info Personnel</h2>
+			</div>
+			<div><input type="text" name="UserName" id="UserName" class="UserName" placeholder="UserName"></div>
+			<div><input type="email" name="Email" id="Email" class="Email" placeholder="Email"></div>
+			<div><input type="tel" name="Phone" id="Phone" class="Phone" placeholder="N° Telephone"  pattern="^[0]{1}-[5-8]{9}"></div>
+			<div><input type="text" name="Adresse" id="Adresse" class="Adresse" placeholder="Adresse"><button class="btn-GPS fas fa-map-marker-alt"></button></div>
+			<div style="display: flex; justify-content: center;"><div class="map" id="map"></div></div> 
+			<button type="submit" class="Valider-Btn" id="Valider-Btn">Valider</button>
+		</div>
+	</div>
+	<!-- the Commanded food -->
+	<div class="foods">
+		<%command.forEach(function(com,index){%>
+		<div class="food">
+			<div class="text">
+				<div class="food-title"><%=com.title%></div>
+				<div class="food-categorie"> <%=com.categorie%></div>
+			</div>
+			<div class="food-Quantity"><%=com.Qtt%></div>
+			<div class="food-tot-price"><span><%=com.price%>DH</span></div>
+		</div>
+		<%})%>
+	</div>
+	<div class="total-price"><span>Total Price :</span>  <%=Total%> <span>DH</span> </div>
+	<div class="Back"><a href="/food" class="fas fa-arrow-left">Food Page</a></div>
+	
+	<script>
+		$(document).ready(function(){
+			$('#map').hide();
+			var GPSShow=false;
+			$('.btn-GPS').click(function(){
+				if(GPSShow==false)
+				{
+					$('#map').show();
+					GPSShow=true;
+				}
+				else{
+					$('#map').hide();
+					GPSShow=false
+				}
+			})
+		})
+	</script>
+	<script>
+				
+		function initMap(){
+			$('.btn-GPS').click(function(){
+					
+					// Try HTML5 geolocation.
+					if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(
+							(position) => {
+								const pos = {
+									lat: position.coords.latitude,
+									lng: position.coords.longitude,
+								};
+								let uluru = { lat: pos.lat, lng: pos.lng };
+								let map = new google.maps.Map(document.getElementById('map')
+								, { zoom: 14, center: uluru });
+								let marker = new google.maps.Marker({ position: uluru, map: map })
+								const geocoder = new google.maps.Geocoder();
+								var  Adresse_Input=document.getElementById('Adresse');
+								geocodeLatLng(geocoder, map, Adresse_Input,pos)
+							},
+						);
+					}
+			})
+		
+		}
+		
+		function geocodeLatLng(geocoder, map, infowindow,pos) {
+				
+				geocoder.geocode({ location: pos }, (results, status) => {
+					if (status === "OK") {
+						if (results[0]) {
+							map.setZoom(15);
+							const marker = new google.maps.Marker({
+								position: pos,
+								map: map,
+							});
+							infowindow.value=results[2].formatted_address;							
+						} else {
+							window.alert("No results found");
+						}
+					} else {
+						window.alert("Geocoder failed due to: " + status);
+					}
+				});
+			}
+	</script>
+
+
+
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6cxu0tctiSkIv-jCVhs_ATJbaFqzYkmk&callback=initMap&libraries=&v=weekly"
+			async></script>
+
+
+
+
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+		integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+		integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

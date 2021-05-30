@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/SendMail_Style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+    <script src="https://kit.fontawesome.com/af5f93d7ae.js" crossorigin="anonymous"></script>
+
+    <title>Contact Us</title>
+</head>
+<body>
+    <form action="/SendMail" method="post">
+    <div class="globale">
+            <div class="Container">
+                <a href="/client/home.html" class="fas fa-arrow-left back">  Home</a>
+                <div class="info">
+                    <h2 >Contact Us</h2>
+                    <input type="text" name="UserName" id="UserName" placeholder="UserName"><br>
+                    <div class="Message-Section" style="display: flex;">
+                        <h4 class="message">Message: </h4>
+                        <textarea name="Message" id="Message" cols="70" rows="10" placeholder="Enter Your Message Your Message"></textarea>
+                    </div>
+                    <button id="Send_btn" class="Send_btn" onclick="Valide()">Send</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+      function Valide(){
+        var UserName=document.getElementById('UserName').value;
+        var Email =document.getElementById('Email').value;
+        var Message=document.getElementById('Message').value;
+        
+        if(UserName==''|Email==''|Message=='')
+        {
+            alert('Fill all the informations');
+        }
+        else{
+           SendEmail();
+        }
+        
+        }
+
+      
+        
+        
+        
+    </script>
+
+
+
+
+
+    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

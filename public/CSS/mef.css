@@ -1,0 +1,222 @@
+* {
+  font-family: Cambria;
+}
+body {
+  background: url(../images/motifgb2.jpg) top center;
+}
+.GLOBAL {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 80%;
+  height: 90%;
+  border-radius: 30px;
+  margin-left: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0px;
+}
+input {
+  width: 250px;
+  border-radius: 10px;
+  border: 0.5px solid black;
+}
+input:focus {
+  outline: none;
+  box-shadow: 3px 3px 2px #f8aa02c4;
+}
+.div2 {
+  text-align: center;
+}
+.btn-GPS {
+  background-color: #242424;
+  color: #f8aa02;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: ALL 0.3s ease;
+}
+.btn-GPS:hover {
+  width: 35px;
+  height: 35px;
+}
+.btn-GPS:hover::after {
+  content: "My Location";
+  color: #fff;
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  margin-left: 10px;
+  background-color: #242424;
+  border-radius: 10px;
+}
+.btn-GPS:focus {
+  outline: none;
+}
+.Title {
+  width: 100%;
+  background-color: #242424;
+  color: #f8aa02;
+  border-radius: 30px 30px 0px 0px;
+  position: relative;
+}
+.div2 div {
+  width: 100%;
+  margin-top: 10px;
+}
+.div2 div:nth-child(1) {
+  margin-top: 0;
+}
+.div2 div:nth-child(5) {
+  margin-left: 16px;
+}
+
+.Valider-Btn {
+  width: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid #f8aa02;
+  margin-top: 50px;
+  background-color: #242424;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.Valider-Btn:hover {
+  width: 210px;
+  height: 30px;
+}
+.Valider-Btn:focus {
+  outline: none;
+}
+
+.foods {
+  width: 80%;
+  height: 50vh;
+  overflow-y: scroll;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  margin-left: 70px;
+}
+.foods::-webkit-scrollbar {
+  width: 0;
+}
+.food {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 20px;
+  height: 50px;
+  background-color: #242424;
+  display: flex;
+  position: relative;
+}
+.text {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 80%;
+}
+.food-title {
+  color: #f8aa02;
+  font-size: 22px;
+}
+.food-categorie {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.food-Quantity {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.food-tot-price {
+  height: 100%;
+  background-color: #fff;
+  width: 17%;
+  border-radius: 0px 20px 20px 0px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f8aa02;
+}
+.map {
+  height: 300px;
+  width: 90% !important;
+  border-radius: 20px;
+  border: 1px solid #000;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.Back {
+  position: absolute;
+  left: 75px;
+  top: 5px;
+  width: 170px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.63);
+  border-radius: 10px;
+  cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .GLOBAL {
+    width: 100%;
+    margin-left: 0px;
+    display: flex;
+    position: relative;
+  }
+  .foods {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .food-tot-price span {
+    transform: rotate(90deg);
+  }
+  .food {
+    height: 100px;
+  }
+  .Back {
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    width: 110px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.63);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
+
+.total-price {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  background-color: #242424b4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  z-index: 500;
+  color: #fff;
+}
+.total-price span:nth-child(1) {
+  margin-right: 10px;
+  color: #f8aa02;
+}
